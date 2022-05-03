@@ -1,14 +1,14 @@
 
 # API promotion-entrant Coding Exam.
 
-This repository is a coding exam for Promo Veritas that can use API with lumen framework. This test can send email using mailtrap.
+This repository is a coding exam for gigco. This repository will show the skill level and general knowledge about PHP and RESTful APIs using the Laravel framework. 
 
 ## Installation
 
 Clone the repository 
 
 ```bash
-git clone https://github.com/Damnval/promo-veritas.git
+git clone https://github.com/Damnval/gigco_ce.git
 ```
 
 ## Install dependencies
@@ -21,27 +21,29 @@ composer install
 
 ## Development Setup
 
+Create an .env file
+
 ```bash
 cp .env.example .env
 ```
 
-## Create DataBase 
-
-Go to your sql and create a DB named 'veritas'
-
-## Run migration
+Create a key for laravel
 
 ```bash
-php artisan migrate --seed
+php artisan generate:key
 ```
 
-## Run and test Coding Exam
+## Create DataBase 
+
+Go to your sql and create a DB named 'gigco_ce'
+
+## Serve project
 
 ```bash
-php -S localhost:8000 -t public
+php artisan serve
 ```
 Go to browser and type http://localhost:8000/
 
 ### Coding Style
 
-PSR-2/ SOLID
+PSR-2 / SOLID / KISS
