@@ -2,12 +2,18 @@
 
 namespace App\Services;
 
+use App\CustomClasses\Mp3uploader;
 use App\Models\Song;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Model;
 
 class SongService
 {
+    public function __construct(Mp3uploader $mp3uploader)
+    {
+        $this->mp3uploader = $mp3uploader;
+    }
+
     // we can use repository to apply seperation of concern or SOLID principle
     public function getAllSongs(): LengthAwarePaginator
     {
@@ -25,6 +31,8 @@ class SongService
 
     public function storeSong(array $data): ?Model
     {
+        $data = array_merge($data, $this->mp3uploader->getData($data['audio']));
+
         $song = new Song();
         $song->fill($data);
         $song->save();
@@ -33,6 +41,8 @@ class SongService
 
     public function updateSong(array $data, int $id): bool
     {
+        $data = array_merge($data, $this->mp3uploader->getData($data['audio']));
+
         $song = Song::find($id);
         $updated_song = $song->update($data);
         return $updated_song;

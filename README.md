@@ -1,5 +1,5 @@
 
-# API promotion-entrant Coding Exam.
+# API GIGCO Coding Exam.
 
 This repository is a coding exam for gigco. This repository will show the skill level and general knowledge about PHP and RESTful APIs using the Laravel framework. 
 
@@ -59,4 +59,8 @@ Go to browser and type http://localhost:8000/
 
 PSR-2 / SOLID / KISS
 
+
+<!-- then run command : php artisan storage:link
+
+this command will link your storage folder to public folde -->
 
