@@ -27,7 +27,7 @@ Create an .env file
 cp .env.example .env
 ```
 
-Create a key for laravel
+Create a key for laravel project
 
 ```bash
 php artisan generate:key
@@ -36,6 +36,17 @@ php artisan generate:key
 ## Create DataBase 
 
 Go to your sql and create a DB named 'gigco_ce'
+
+## Setup DB credentials
+
+DB_USERNAME={YOUR_DB_USERNAME}
+DB_PASSWORD={YOUR_PASSWORD}
+
+## Migrate database
+
+```bash
+php artisan migrate
+```
 
 ## Serve project
 
@@ -47,3 +58,5 @@ Go to browser and type http://localhost:8000/
 ### Coding Style
 
 PSR-2 / SOLID / KISS
+
+
