@@ -215,7 +215,7 @@ class SongController extends Controller
 
     /**
      * @OA\Delete(
-     *      path="api/songs/{id}",
+     *      path="/api/songs/{id}",
      *      operationId="deleteSong",
      *      tags={"Songs"},
      *      summary="Delete existing song",
