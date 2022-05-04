@@ -3,11 +3,12 @@
 namespace App\Services;
 
 use App\CustomClasses\Mp3uploader;
+use App\Interfaces\SongServiceInterface;
 use App\Models\Song;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Model;
 
-class SongService
+class SongService implements SongServiceInterface
 {
     public function __construct(Mp3uploader $mp3uploader)
     {
