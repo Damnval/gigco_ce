@@ -7,7 +7,6 @@ use App\Http\Requests\UpdateSong;
 use App\Http\Resources\SongResource;
 use App\Http\Resources\SongsCollection;
 use App\Services\SongService;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class SongController extends Controller
@@ -40,7 +39,6 @@ class SongController extends Controller
         DB::beginTransaction();
 
         try {
-
             // Will return only validated data
             $validated = $request->validated();
             $song = $this->songService->storeSong($validated);

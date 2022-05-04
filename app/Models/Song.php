@@ -15,6 +15,8 @@ class Song extends Model
      * @var array
      */
     protected $fillable = [
+        'file_path',
+        'file_name',
         'url',
         'title',
         'duration',

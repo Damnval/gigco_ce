@@ -2,6 +2,8 @@
 
 namespace App\CustomClasses;
 
+use wapmorgan\Mp3Info\Mp3Info;
+
 class Mp3uploader
 {
     /**
@@ -12,10 +14,10 @@ class Mp3uploader
      */
     public function getData($file_audio)
     {
-        $audio = new \wapmorgan\Mp3Info\Mp3info($file_audio, true);
+        $audio = new Mp3Info($file_audio, true);
 
-        $data['title'] = $file_audio->getClientOriginalName();
-        $data['url'] = $file_audio->storeAs('public/upload/files/audio', time().'-'.$data['title']);
+        $data['file_name'] = $file_audio->getClientOriginalName();
+        $data['file_path'] = $file_audio->storeAs('public/upload/files/audio', time() . '-' . $data['file_name']);
         $data['duration'] = $audio->duration;
 
         return $data;

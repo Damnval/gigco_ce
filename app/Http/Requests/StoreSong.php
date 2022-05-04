@@ -24,9 +24,11 @@ class StoreSong extends FormRequest
     public function rules()
     {
         return [
+            'url' => 'required',
+            'title' => 'required',
             'artist_name' => 'required',
             // will use mp3 for demo purpose only
-            'audio' =>'nullable|file|mimes:mp3'
+            'audio' => 'required|file|mimes:mp3'
         ];
     }
 }

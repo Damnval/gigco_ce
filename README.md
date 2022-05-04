@@ -30,7 +30,7 @@ cp .env.example .env
 Create a key for laravel project
 
 ```bash
-php artisan generate:key
+php artisan key:generate
 ```
 
 ## Create DataBase 
@@ -48,6 +48,14 @@ DB_PASSWORD={YOUR_PASSWORD}
 php artisan migrate
 ```
 
+## symbolic link
+
+link your storage folder to public folder
+
+```bash
+php artisan storage:link
+```
+
 ## Serve project
 
 ```bash
@@ -58,9 +66,3 @@ Go to browser and type http://localhost:8000/
 ### Coding Style
 
 PSR-2 / SOLID / KISS
-
-
-<!-- then run command : php artisan storage:link
-
-this command will link your storage folder to public folde -->
-

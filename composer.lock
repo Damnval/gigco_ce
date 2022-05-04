@@ -4277,6 +4277,10 @@
                 "mp3",
                 "mpeg"
             ],
+            "support": {
+                "issues": "https://github.com/wapmorgan/Mp3Info/issues",
+                "source": "https://github.com/wapmorgan/Mp3Info/tree/0.0.7"
+            },
             "time": "2021-08-12T00:38:40+00:00"
         },
         {
@@ -6500,5 +6504,6 @@
     "platform": {
         "php": "^7.3|^8.0"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }
