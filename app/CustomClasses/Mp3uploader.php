@@ -12,8 +12,14 @@ class Mp3uploader
      * @param $file_audio
      * @return void
      */
-    public function getData($file_audio)
+    public function getData($data)
     {
+        if (!array_key_exists('audio', $data)) {
+            return [];
+        }
+
+        $file_audio = $data['audio'];
+
         $audio = new Mp3Info($file_audio, true);
 
         $data['file_name'] = $file_audio->getClientOriginalName();

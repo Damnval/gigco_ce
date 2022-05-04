@@ -28,7 +28,7 @@ class UpdateSong extends FormRequest
             'title' => 'required',
             'artist_name' => 'required',
             // will use mp3 for demo purpose only
-            'audio' => 'required|file|mimes:mp3'
+            'audio' => 'nullable|file|mimes:mp3'
         ];
     }
 }
