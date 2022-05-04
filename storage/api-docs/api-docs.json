@@ -1,0 +1,365 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Gigco Coding Exam",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/songs": {
+            "get": {
+                "tags": [
+                    "Songs"
+                ],
+                "summary": "Get list of Songs",
+                "description": "Returns list of Songs",
+                "operationId": "GetSongs",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Songs"
+                ],
+                "summary": "Store Song",
+                "description": "Will save a new song in DB",
+                "operationId": "StoreSong",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "url",
+                                    "title",
+                                    "artist_name"
+                                ],
+                                "properties": {
+                                    "url": {
+                                        "type": "text"
+                                    },
+                                    "title": {
+                                        "type": "text"
+                                    },
+                                    "artist_name": {
+                                        "type": "text"
+                                    },
+                                    "audio": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        },
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Register Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Register Successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Unprocessable Entity",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "/api/songs/{id}": {
+            "get": {
+                "tags": [
+                    "Songs"
+                ],
+                "summary": "Get Song",
+                "description": "Returns song data",
+                "operationId": "ShowSong",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Song id",
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Songs"
+                ],
+                "summary": "Update existing song",
+                "description": "Returns updated song data",
+                "operationId": "updateSongs",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Project id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "url",
+                                    "title",
+                                    "artist_name"
+                                ],
+                                "properties": {
+                                    "url": {
+                                        "type": "text"
+                                    },
+                                    "title": {
+                                        "type": "text"
+                                    },
+                                    "artist_name": {
+                                        "type": "text"
+                                    },
+                                    "audio": {
+                                        "type": "file"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "202": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        },
+        "api/songs/{id}": {
+            "delete": {
+                "tags": [
+                    "Songs"
+                ],
+                "summary": "Delete existing song",
+                "description": "Deletes a record and returns a success message",
+                "operationId": "deleteSong",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Song id",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "404": {
+                        "description": "Resource Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "StoreSong": {
+                "title": "Store Song request",
+                "description": "Store Song request body data",
+                "required": [
+                    "url",
+                    "title",
+                    "artist_name"
+                ],
+                "properties": {
+                    "url": {
+                        "title": "url",
+                        "description": "Url of the new song",
+                        "type": "string",
+                        "example": "www.edsheeran.com"
+                    },
+                    "title": {
+                        "title": "title",
+                        "description": "Title of the new song",
+                        "type": "string",
+                        "example": "Photograph"
+                    },
+                    "artist_name": {
+                        "title": "artist_name",
+                        "description": "artist_name of the new song",
+                        "type": "string",
+                        "example": "Ed Sheeran"
+                    }
+                },
+                "type": "object"
+            },
+            "SongResource": {
+                "title": "SongResource",
+                "description": "Song resource",
+                "properties": {
+                    "url": {
+                        "title": "url",
+                        "description": "Url",
+                        "format": "string",
+                        "default": "Demo"
+                    },
+                    "title": {
+                        "title": "title",
+                        "description": "title",
+                        "format": "string",
+                        "default": "demo"
+                    },
+                    "artist_name": {
+                        "title": "artist_name",
+                        "description": "Artist name",
+                        "format": "string",
+                        "default": "test"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "SongResource"
+                }
+            },
+            "Song": {
+                "title": "Song",
+                "description": "Song model",
+                "properties": {
+                    "id": {
+                        "title": "ID",
+                        "description": "ID",
+                        "type": "integer",
+                        "format": "int",
+                        "example": 1
+                    },
+                    "url": {
+                        "title": "url",
+                        "description": "url of the new Song",
+                        "type": "string",
+                        "example": "www.edsheeran.com/songs/"
+                    },
+                    "title": {
+                        "title": "title",
+                        "description": "title of the new Song",
+                        "type": "string",
+                        "example": "PhotoGraph"
+                    },
+                    "artist_name": {
+                        "title": "artist_name",
+                        "description": "Artist name of the new Song",
+                        "type": "string",
+                        "example": "Ed sheeran"
+                    },
+                    "created_at": {
+                        "title": "Created at",
+                        "description": "Created at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2020-01-27 17:50:45"
+                    },
+                    "updated_at": {
+                        "title": "Updated at",
+                        "description": "Updated at",
+                        "type": "string",
+                        "format": "datetime",
+                        "example": "2020-01-27 17:50:45"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Song"
+                }
+            }
+        }
+    }
+}

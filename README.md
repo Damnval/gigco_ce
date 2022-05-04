@@ -1,4 +1,3 @@
-
 # API GIGCO Coding Exam.
 
 This repository is a coding exam for gigco. This repository will show the skill level and general knowledge about PHP and RESTful APIs using the Laravel framework. 
@@ -61,7 +60,22 @@ php artisan storage:link
 ```bash
 php artisan serve
 ```
+
 Go to browser and type http://localhost:8000/
+
+## To Test project
+
+```bash
+php artisan test
+```
+
+## To Generate Swagger/OpenAPI Documentation 
+
+```bash
+php artisan l5-swagger:generate
+```
+
+Go to browser and open http://localhost:8000/api/documentation
 
 ### Coding Style
 

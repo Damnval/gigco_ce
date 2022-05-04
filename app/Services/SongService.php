@@ -74,7 +74,7 @@ class SongService implements SongServiceInterface
     {
         $data = array_merge($data, $this->mp3uploader->getData($data));
 
-        $song = Song::find($id);
+        $song = Song::findOrFail($id);
         $updated_song = $song->update($data);
         return $updated_song;
     }
@@ -87,6 +87,7 @@ class SongService implements SongServiceInterface
      */
     public function deleteSong(int $id): bool
     {
-        return Song::destroy($id);
+        $song = Song::findOrFail($id);
+        return $song->delete();
     }
 }

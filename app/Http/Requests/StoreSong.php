@@ -4,8 +4,49 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @OA\Schema(
+ *      title="Store Song request",
+ *      description="Store Song request body data",
+ *      type="object",
+ *      required={"url", "title", "artist_name"}
+ * )
+ */
 class StoreSong extends FormRequest
 {
+    /**
+     * @OA\Property(
+     *      title="url",
+     *      description="Url of the new song",
+     *      example="www.edsheeran.com"
+     * )
+     *
+     * @var string
+     */
+    public $url;
+
+    /**
+     * @OA\Property(
+     *      title="title",
+     *      description="Title of the new song",
+     *      example="Photograph"
+     * )
+     *
+     * @var string
+     */
+    public $title;
+
+    /**
+     * @OA\Property(
+     *      title="artist_name",
+     *      description="artist_name of the new song",
+     *      example="Ed Sheeran"
+     * )
+     *
+     * @var string
+     */
+    public $artist_name;
+
     /**
      * Determine if the user is authorized to make this request.
      *

@@ -4,6 +4,15 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
+/**
+ * @OA\Schema(
+ *     title="SongResource",
+ *     description="Song resource",
+ *     @OA\Xml(
+ *         name="SongResource"
+ *     )
+ * )
+ */
 class SongResource extends JsonResource
 {
     /**
@@ -11,6 +20,13 @@ class SongResource extends JsonResource
      *
      * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
+     *
+     * @OA\Property(format="string", title="url", default="Demo", description="Url", property="url"),
+     * @OA\Property(format="string", title="title", default="demo", description="title", property="title"),
+     * @OA\Property(format="string", title="artist_name", default="test", description="Artist name", property="artist_name")
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
      */
     public function toArray($request)
     {
