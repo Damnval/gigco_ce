@@ -31,8 +31,8 @@ class Song extends Model
     /**
      * @OA\Property(
      *      title="url",
-     *      description="url of the new Song",
-     *      example="www.edsheeran.com/songs/"
+     *      description="Url of the new song",
+     *      example="www.edsheeran.com"
      * )
      *
      * @var string

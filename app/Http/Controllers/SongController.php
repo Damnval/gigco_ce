@@ -143,7 +143,7 @@ class SongController extends Controller
     }
 
     /**
-     * @OA\Put(
+     * @OA\Post(
      *      path="/api/songs/{id}",
      *      operationId="updateSongs",
      *      tags={"Songs"},
@@ -167,6 +167,7 @@ class SongController extends Controller
      *                  @OA\Property(property="url", type="text"),
      *                  @OA\Property(property="title", type="text"),
      *                  @OA\Property(property="artist_name", type="text"),
+     *                  @OA\Property(property="_method", type="text", default="PUT"),
      *                  @OA\Property(property="audio", type="file"),
      *               ),
      *           ),

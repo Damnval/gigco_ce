@@ -16,29 +16,59 @@ use Illuminate\Http\Resources\Json\JsonResource;
 class SongResource extends JsonResource
 {
     /**
+     * @OA\Property(
+     *      title="url",
+     *      description="Url of the new song",
+     *      example="www.edsheeran.com"
+     * )
+     *
+     * @var string
+     */
+    public $url;
+
+    /**
+     * @OA\Property(
+     *      title="title",
+     *      description="Title of the new song",
+     *      example="Photograph"
+     * )
+     *
+     * @var string
+     */
+    public $title;
+
+    /**
+     * @OA\Property(
+     *      title="artist_name",
+     *      description="artist_name of the new song",
+     *      example="Ed Sheeran"
+     * )
+     *
+     * @var string
+     */
+    public $artist_name;
+
+    /**
+     *
      * Transform the resource into an array.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
+     * @OAS\Property(property="id",type="integer",example=1)
+     * @OAS\Property(property="url",type="string",example="www.edsheeran.com"")
      *
-     * @OA\Property(format="string", title="url", default="Demo", description="Url", property="url"),
-     * @OA\Property(format="string", title="title", default="demo", description="title", property="title"),
-     * @OA\Property(format="string", title="artist_name", default="test", description="Artist name", property="artist_name")
-     *
-     * @param  \Illuminate\Http\Request  $request
      * @return array
      */
     public function toArray($request)
     {
-        return [
-            'id' => $this->id,
-            'file_path' => $this->file_path,
-            'file_name' => $this->file_name,
-            'url' => $this->url,
-            'title' => $this->title,
-            'duration' => $this->duration,
-            'artist_name' => $this->artist_name,
-            'created_at' => $this->created_at,
-        ];
+        return parent::toArray($request);
+        // return [
+        //     'id' => $this->id,
+        //     'file_path' => $this->file_path,
+        //     'file_name' => $this->file_name,
+        //     'url' => $this->url,
+        //     'title' => $this->title,
+        //     'duration' => $this->duration,
+        //     'artist_name' => $this->artist_name,
+        //     'created_at' => $this->created_at,
+        // ];
     }
 }

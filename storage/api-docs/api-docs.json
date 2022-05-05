@@ -140,7 +140,7 @@
                     }
                 }
             },
-            "put": {
+            "post": {
                 "tags": [
                     "Songs"
                 ],
@@ -177,6 +177,10 @@
                                     "artist_name": {
                                         "type": "text"
                                     },
+                                    "_method": {
+                                        "type": "text",
+                                        "default": "PUT"
+                                    },
                                     "audio": {
                                         "type": "file"
                                     }
@@ -208,9 +212,7 @@
                         "description": "Resource Not Found"
                     }
                 }
-            }
-        },
-        "api/songs/{id}": {
+            },
             "delete": {
                 "tags": [
                     "Songs"
@@ -289,21 +291,21 @@
                 "properties": {
                     "url": {
                         "title": "url",
-                        "description": "Url",
-                        "format": "string",
-                        "default": "Demo"
+                        "description": "Url of the new song",
+                        "type": "string",
+                        "example": "www.edsheeran.com"
                     },
                     "title": {
                         "title": "title",
-                        "description": "title",
-                        "format": "string",
-                        "default": "demo"
+                        "description": "Title of the new song",
+                        "type": "string",
+                        "example": "Photograph"
                     },
                     "artist_name": {
                         "title": "artist_name",
-                        "description": "Artist name",
-                        "format": "string",
-                        "default": "test"
+                        "description": "artist_name of the new song",
+                        "type": "string",
+                        "example": "Ed Sheeran"
                     }
                 },
                 "type": "object",
@@ -324,9 +326,9 @@
                     },
                     "url": {
                         "title": "url",
-                        "description": "url of the new Song",
+                        "description": "Url of the new song",
                         "type": "string",
-                        "example": "www.edsheeran.com/songs/"
+                        "example": "www.edsheeran.com"
                     },
                     "title": {
                         "title": "title",

@@ -18,6 +18,10 @@ class Mp3uploader
             return [];
         }
 
+        if (!$data['audio']) {
+            return [];
+        }
+
         $file_audio = $data['audio'];
 
         $audio = new Mp3Info($file_audio, true);
